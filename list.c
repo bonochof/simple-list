@@ -4,6 +4,7 @@
 void main() {
   char buffer[410000], data[410000];
   int n, i, next[410000];
+  int j;
 
   scanf("%s", buffer);
   n = strlen(buffer)+1;
@@ -21,7 +22,6 @@ void main() {
   printf("\n\n");
 
   i = 0;
-  int j;
   while(data[next[i]] != 0) {
     if(data[next[i]] == 'a') {
       data[++n] = '!';
