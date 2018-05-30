@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
+#define DEBUG
+
 void main() {
   char buffer[410000], data[410000];
   int n, i, next[410000];
+#ifdef DEBUG
   int j;
+#endif
 
   scanf("%s", buffer);
   n = strlen(buffer)+1;
@@ -13,6 +17,7 @@ void main() {
     next[i] = i + 1;
   }
 
+#ifdef DEBUG
   for(i = 0; i <= n+1; i++)
     printf("%c  ", data[i]);
   printf("\n");
@@ -20,6 +25,7 @@ void main() {
   for(i = 0; i < n+1; i++)
     printf("%2d ", next[i]);
   printf("\n\n");
+#endif
 
   i = 0;
   while(data[next[i]] != 0) {
@@ -35,6 +41,8 @@ void main() {
     }
     else {
     }
+
+#ifdef DEBUG
     printf("---\n");
     printf("%d : %c\n", next[i], data[next[i]]);
     for(j = 0; j <= n+1; j++)
@@ -43,10 +51,12 @@ void main() {
     for(j = 0; j < n+1; j++)
       printf("%2d ", next[j]);
     printf("\n");
+#endif
 
     i = next[i];
   }
 
+#ifdef DEBUG
   for(i = 0; i <= n+1; i++)
     printf("%c  ", data[i]);
   printf("\n");
@@ -54,6 +64,7 @@ void main() {
   for(i = 0; i < n+1; i++)
     printf("%2d ", next[i]);
   printf("\n\n");
+#endif
 
   for(i = 0; data[next[i]] != 0; i = next[i])
     printf("%c", data[next[i]]);
